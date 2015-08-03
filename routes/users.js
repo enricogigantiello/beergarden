@@ -63,4 +63,32 @@ router.post('/adduser', function(req, res) {
     });*/
 });
 
+/*
+ * DELETE to deleteuser.
+ */
+router.delete('/deleteuser/:id', function(req, res) {
+    var db = req.db;
+    var querystring = 'DELETE FROM USERS WHERE user_id = '+req.params.id+'';
+    //console.log(querystring);
+    var query = db.query(querystring);
+
+
+    query
+        .on('error', function(err) {
+            // Handle error, and 'end' event will be emitted after this as well
+            console.log(err);
+            res.send({ msg: err });
+
+        })
+
+
+        .on('end', function() {
+            res.send({ msg: '' } );
+        });
+
+   /* collection.remove({ '_id' : userToDelete }, function(err) {
+        res.send((err === null) ? { msg: '' } : { msg:'error: ' + err });
+    });*/
+});
+
 module.exports = router;

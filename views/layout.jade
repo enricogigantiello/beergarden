@@ -1,10 +1,26 @@
-doctype html
-html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
-    script(src='/javascripts/jquery.min.js')
-    script(src='/javascripts/global.js')
-    //script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
+include mixins
+doctype
+html( lang="en" )
+    head
+        title Baking Bootstrap Snippets with Jade
+        meta( charset='utf-8' )
+        meta( http-equiv='X-UA-Compatible', content='IE=edge' )
+        meta( name='viewport', content='width=device-width, initial-scale=1.0' )
+        meta( name='description', content='Baking Bootstrap Snippets with Jade' )
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        //- Bootswatch Theme
+        +bootswatch("flatly")
+    body(style="padding-bottom:10rem;")
+        .container-fluid
+            .row
+                .col-md-4.col-sm-6.col-xs-12
+                    block menu
+                .col-md-4.col-sm-6.col-xs-12
+                    block content
+                .col-md-4.col-sm-6.col-xs-12
+
+
+        script(src='/javascripts/jquery.min.js')
+        script(src='/javascripts/global.js')
+        script( src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js' )
+        script( src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js' )

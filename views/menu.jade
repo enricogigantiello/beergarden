@@ -1,0 +1,26 @@
+extends layout
+include mixins
+
+block menu
+
+        each prod, i in products
+
+            if (i % 3 == 0)
+                .row(style="border: solid 1px")
+                    each val2, index2 in products.slice(i, i+3)
+                        .col-md-4.col-sm-6.col-xs-12
+                            img.img-responsive(src="/images/"+val2.image+".jpg")
+                            .caption.text-center
+                                h4
+                                    =val2.name
+
+
+
+
+
+
+
+
+//
+   Created by enricogiga on 05/08/2015.
+

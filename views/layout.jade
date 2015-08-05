@@ -11,8 +11,14 @@ html( lang="en" )
         //- Bootswatch Theme
         +bootswatch("flatly")
     body(style="padding-bottom:10rem;")
-        .container
-            block content
+        .container-fluid
+            .row
+                .col-md-4.col-sm-6.col-xs-12
+                    block menu
+                .col-md-4.col-sm-6.col-xs-12
+                    block content
+                .col-md-4.col-sm-6.col-xs-12
+
 
         script(src='/javascripts/jquery.min.js')
         script(src='/javascripts/global.js')

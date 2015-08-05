@@ -1,6 +1,15 @@
 extends layout
 include mixins
 
+block menu
+    .row
+        .col-md-4.col-sm-6.col-xs-12
+            p Welcome to our test
+        .col-md-4.col-sm-6.col-xs-12
+            p Welcome to our test
+        .col-md-4.col-sm-6.col-xs-12
+            p Welcome to our test
+
 block content
     nav.navbar.navbar-default( role="navigation" )
         .navbar-header
@@ -73,5 +82,17 @@ block content
                 br
                 button#btnAddUser Add User
         // /ADD USER
+
+        // prod LIST
+        h2 Prod List
+        #prodList
+            table
+                thead
+                    th Name
+                    th Price
+                    th Image
+                tbody
+        // /USER LIST
+
 
     // /WRAPPER

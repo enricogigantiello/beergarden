@@ -3,12 +3,15 @@
  */
 // Userlist data array for filling in info box
 var userListData = [];
+var prodListData = [];
 
 // DOM Ready =============================================================
 $(document).ready(function() {
 
     // Populate the user table on initial page load
     populateTable();
+
+    populateProdTable();
 
     // Username link click
     $('#userList table tbody').on('click', 'td a.linkshowuser', showUserInfo);
@@ -23,6 +26,64 @@ $(document).ready(function() {
 });
 
 // Functions =============================================================
+
+// Fill table with data
+function populateProdMenu() {
+
+    // Empty content string
+    var tableContent = '';
+
+    // jQuery AJAX call for JSON
+    $.getJSON( '/products/productlist', function( data ) {
+
+        // Stick our user data array into a userlist variable in the global object
+        prodListData = data;
+
+        var index=0;
+        // For each item in our JSON, add a table row and cells to the content string
+        $.each(data, function(){
+            if(index % 3 == 0 ){
+
+            }
+            index++;
+            tableContent += '<tr>';
+            tableContent += '<td>' + this.name + '</td>';
+            tableContent += '<td>' + this.price + '</td>';
+            tableContent += '<td><img src="images/'+this.image+'.jpg"></td>';
+            tableContent += '</tr>';
+        });
+
+        // Inject the whole content string into our existing HTML table
+        $('#prodList table tbody').html(tableContent);
+    });
+};
+
+
+// Fill table with data
+function populateProdTable() {
+
+    // Empty content string
+    var tableContent = '';
+
+    // jQuery AJAX call for JSON
+    $.getJSON( '/products/productlist', function( data ) {
+
+        // Stick our user data array into a userlist variable in the global object
+        prodListData = data;
+
+        // For each item in our JSON, add a table row and cells to the content string
+        $.each(data, function(){
+            tableContent += '<tr>';
+            tableContent += '<td>' + this.name + '</td>';
+            tableContent += '<td>' + this.price + '</td>';
+            tableContent += '<td><img src="images/'+this.image+'.jpg"></td>';
+            tableContent += '</tr>';
+        });
+
+        // Inject the whole content string into our existing HTML table
+        $('#prodList table tbody').html(tableContent);
+    });
+};
 
 // Fill table with data
 function populateTable() {

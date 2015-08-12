@@ -1,0 +1,29 @@
+<head>
+  <title>beergarden</title>
+</head>
+
+<body>
+  <h1>Welcome to Meteor!</h1>
+
+  {{> hello}}
+      <ul>
+
+      {{#each products}}
+
+        {{> product}}
+
+      {{/each}}
+
+    </ul>
+</body>
+
+<template name="hello">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+</template>
+<template name="product">
+
+  <li>{{name}} - {{price}}</li>
+  
+
+</template>
